@@ -1,6 +1,4 @@
-
-
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 const SignupForm = () => {
   const [firstName, setFirstName] = useState('');
@@ -9,6 +7,15 @@ const SignupForm = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
+  const [isDark, setIsDark] = useState(true);
+
+//   useEffect(() => {
+//     if (isDark) {
+//       document.documentElement.classList.add('dark');
+//     } else {
+//       document.documentElement.classList.remove('dark');
+//     }
+//   }, [isDark]);
 
   const generateRandomUsername = () => {
     const randomString = Math.random().toString(36).slice(2, 6);
@@ -19,9 +26,25 @@ const SignupForm = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white-900 flex items-center justify-center p-4">
-      <div className="relative w-full max-w-md bg-black bg-opacity-90 rounded-xl shadow-2xl px-8 py-10 sm:px-10 sm:py-12">
-        <p className="text-white text-2xl font-bold text-center mb-8">Sign Up</p>
+    <div className="min-h-screen dark:bg-gray-900 bg-gray-100 flex items-center justify-center p-4 transition-colors duration-300">
+      <div className="relative w-full max-w-md dark:bg-black bg-white dark:bg-opacity-90 bg-opacity-90 rounded-xl shadow-2xl px-8 py-10 sm:px-10 sm:py-12 transition-colors duration-300">
+        <div className="flex justify-center items-center mb-8">
+          <p className="dark:text-white text-gray-900 text-2xl font-bold">Sign Up</p>
+          {/* <button
+            onClick={() => setIsDark(!isDark)}
+            className="p-2 rounded-full dark:bg-gray-800 bg-gray-200 hover:opacity-80 transition-opacity"
+          >
+            {isDark ? (
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-yellow-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707" />
+              </svg>
+            ) : (
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+              </svg>
+            )}
+          </button> */}
+        </div>
         
         <form className="space-y-6">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -29,11 +52,11 @@ const SignupForm = () => {
               <input 
                 type="text" 
                 required
-                className="w-full bg-transparent text-white border-b-2 border-white focus:border-blue-500 outline-none py-2 peer"
+                className="w-full bg-transparent dark:text-white text-gray-900 border-b-2 dark:border-white border-gray-400 focus:border-blue-500 outline-none py-2 peer transition-colors"
                 value={firstName}
                 onChange={(e) => setFirstName(e.target.value)}
               />
-              <label className="absolute left-0 top-2 text-white transition-all duration-300 
+              <label className="absolute left-0 top-2 dark:text-white text-gray-400 transition-all duration-300 
                 peer-focus:-translate-y-5 peer-focus:text-sm
                 peer-valid:-translate-y-5 peer-valid:text-sm">
                 First Name
@@ -44,11 +67,11 @@ const SignupForm = () => {
               <input 
                 type="text" 
                 required
-                className="w-full bg-transparent text-white border-b-2 border-white focus:border-blue-500 outline-none py-2 peer"
+                className="w-full bg-transparent dark:text-white text-gray-900 border-b-2 dark:border-white border-gray-400 focus:border-blue-500 outline-none py-2 peer transition-colors"
                 value={lastName}
                 onChange={(e) => setLastName(e.target.value)}
               />
-              <label className="absolute left-0 top-2 text-white transition-all duration-300 
+              <label className="absolute left-0 top-2 dark:text-white text-gray-400 transition-all duration-300 
                 peer-focus:-translate-y-5 peer-focus:text-sm
                 peer-valid:-translate-y-5 peer-valid:text-sm">
                 Last Name
@@ -60,11 +83,11 @@ const SignupForm = () => {
             <input 
               type="text" 
               required
-              className="w-full bg-transparent text-white border-b-2 border-white focus:border-blue-500 outline-none py-2 peer pr-10"
+              className="w-full bg-transparent dark:text-white text-gray-900 border-b-2 dark:border-white border-gray-400 focus:border-blue-500 outline-none py-2 peer pr-10 transition-colors"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
             />
-            <label className="absolute left-0 top-2 text-white transition-all duration-300
+            <label className="absolute left-0 top-2 dark:text-white text-gray-400 transition-all duration-300
               peer-focus:-translate-y-5 peer-focus:text-sm
               peer-valid:-translate-y-5 peer-valid:text-sm">
               Username
@@ -72,7 +95,7 @@ const SignupForm = () => {
             <button
               type="button"
               onClick={generateRandomUsername}
-              className="absolute right-0 top-3 text-white/70 hover:text-white transition-colors"
+              className="absolute right-0 top-3 dark:text-white/70 text-gray-500 hover:opacity-80 transition-opacity"
               aria-label="Generate username"
             >
               <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
@@ -86,11 +109,11 @@ const SignupForm = () => {
             <input 
               type="email" 
               required
-              className="w-full bg-transparent text-white border-b-2 border-white focus:border-blue-500 outline-none py-2 peer"
+              className="w-full bg-transparent dark:text-white text-gray-900 border-b-2 dark:border-white border-gray-400 focus:border-blue-500 outline-none py-2 peer transition-colors"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
-            <label className="absolute left-0 top-2 text-white transition-all duration-300 
+            <label className="absolute left-0 top-2 dark:text-white text-gray-400 transition-all duration-300 
               peer-focus:-translate-y-5 peer-focus:text-sm
               peer-valid:-translate-y-5 peer-valid:text-sm">
               Email
@@ -101,11 +124,11 @@ const SignupForm = () => {
             <input 
               type={showPassword ? 'text' : 'password'}
               required
-              className="w-full bg-transparent text-white border-b-2 border-white focus:border-blue-500 outline-none py-2 peer pr-8"
+              className="w-full bg-transparent dark:text-white text-gray-900 border-b-2 dark:border-white border-gray-400 focus:border-blue-500 outline-none py-2 peer pr-8 transition-colors"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
-            <label className="absolute left-0 top-2 text-white transition-all duration-300
+            <label className="absolute left-0 top-2 dark:text-white text-gray-400 transition-all duration-300
               peer-focus:-translate-y-5 peer-focus:text-sm
               peer-valid:-translate-y-5 peer-valid:text-sm">
               Password
@@ -113,7 +136,7 @@ const SignupForm = () => {
             <button
               type="button"
               onClick={() => setShowPassword(!showPassword)}
-              className="absolute right-0 top-3 text-white/70 hover:text-white transition-colors"
+              className="absolute right-0 top-3 dark:text-white/70 text-gray-500 hover:opacity-80 transition-opacity"
               aria-label={showPassword ? 'Hide password' : 'Show password'}
             >
               {showPassword ? (
@@ -132,21 +155,21 @@ const SignupForm = () => {
 
           <button
             type="submit"
-            className="relative overflow-hidden w-full text-white font-bold py-3 px-6 rounded-lg
-              uppercase tracking-wider hover:bg-white hover:text-black transition-all duration-500
-              border-2 border-white hover:border-transparent"
+            className="relative overflow-hidden w-full dark:text-white text-gray-900 font-bold py-3 px-6 rounded-lg
+              uppercase tracking-wider dark:hover:bg-white hover:bg-gray-900 dark:hover:text-black hover:text-white 
+              transition-all duration-500 border-2 dark:border-white border-gray-400 hover:border-transparent"
           >
             Create Account
-            <span className="absolute top-0 left-[-100%] w-full h-[2px] bg-gradient-to-r from-transparent via-white to-transparent animate-btnAnim1"></span>
-            <span className="absolute top-[-100%] right-0 w-[2px] h-full bg-gradient-to-b from-transparent via-white to-transparent animate-btnAnim2"></span>
-            <span className="absolute bottom-0 right-[-100%] w-full h-[2px] bg-gradient-to-l from-transparent via-white to-transparent animate-btnAnim3"></span>
-            <span className="absolute bottom-[-100%] left-0 w-[2px] h-full bg-gradient-to-t from-transparent via-white to-transparent animate-btnAnim4"></span>
+            <span className="absolute top-0 left-[-100%] w-full h-[2px] bg-gradient-to-r from-transparent dark:via-white via-gray-900 to-transparent animate-btnAnim1"></span>
+            <span className="absolute top-[-100%] right-0 w-[2px] h-full bg-gradient-to-b from-transparent dark:via-white via-gray-900 to-transparent animate-btnAnim2"></span>
+            <span className="absolute bottom-0 right-[-100%] w-full h-[2px] bg-gradient-to-l from-transparent dark:via-white via-gray-900 to-transparent animate-btnAnim3"></span>
+            <span className="absolute bottom-[-100%] left-0 w-[2px] h-full bg-gradient-to-t from-transparent dark:via-white via-gray-900 to-transparent animate-btnAnim4"></span>
           </button>
         </form>
 
-        <p className="text-gray-400 text-sm mt-8 text-center">
+        <p className="dark:text-gray-400 text-gray-600 text-sm mt-8 text-center transition-colors">
           Already have an account?{' '}
-          <a href="#" className="text-white hover:text-gray-300 transition-colors">
+          <a href="" className="dark:text-white text-gray-900 hover:opacity-80 transition-opacity">
             Login!
           </a>
         </p>
