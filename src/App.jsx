@@ -1,15 +1,11 @@
-import Login from "./components/Login"
-import SignupForm from "./components/SignUp"
-
-
-
+import ChatBot from "./components/ChatBot"
+import { Navbar1 } from "./components/Navbar1"
 
 const App = () => {
   return (
-    <div>
-    
-     {/* <Login /> */}
-     <SignupForm />
+    <div className="px-10" >
+      <Navbar1 />
+      <ChatBot />
     </div>
 
   )
