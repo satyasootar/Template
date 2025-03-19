@@ -7,15 +7,7 @@ const SignupForm = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
-  const [isDark, setIsDark] = useState(true);
 
-//   useEffect(() => {
-//     if (isDark) {
-//       document.documentElement.classList.add('dark');
-//     } else {
-//       document.documentElement.classList.remove('dark');
-//     }
-//   }, [isDark]);
 
   const generateRandomUsername = () => {
     const randomString = Math.random().toString(36).slice(2, 6);
@@ -26,31 +18,18 @@ const SignupForm = () => {
   };
 
   return (
-    <div className="min-h-screen dark:bg-gray-900 bg-gray-100 flex items-center justify-center p-4 transition-colors duration-300">
+    <div className="min-h-screen dark:bg-transparent bg-gray-100 flex items-center justify-center p-4 transition-colors duration-300">
       <div className="relative w-full max-w-md dark:bg-black bg-white dark:bg-opacity-90 bg-opacity-90 rounded-xl shadow-2xl px-8 py-10 sm:px-10 sm:py-12 transition-colors duration-300">
         <div className="flex justify-center items-center mb-8">
           <p className="dark:text-white text-gray-900 text-2xl font-bold">Sign Up</p>
-          {/* <button
-            onClick={() => setIsDark(!isDark)}
-            className="p-2 rounded-full dark:bg-gray-800 bg-gray-200 hover:opacity-80 transition-opacity"
-          >
-            {isDark ? (
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-yellow-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707" />
-              </svg>
-            ) : (
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
-              </svg>
-            )}
-          </button> */}
+
         </div>
-        
+
         <form className="space-y-6">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div className="relative">
-              <input 
-                type="text" 
+              <input
+                type="text"
                 required
                 className="w-full bg-transparent dark:text-white text-gray-900 border-b-2 dark:border-white border-gray-400 focus:border-blue-500 outline-none py-2 peer transition-colors"
                 value={firstName}
@@ -62,10 +41,10 @@ const SignupForm = () => {
                 First Name
               </label>
             </div>
-            
+
             <div className="relative">
-              <input 
-                type="text" 
+              <input
+                type="text"
                 required
                 className="w-full bg-transparent dark:text-white text-gray-900 border-b-2 dark:border-white border-gray-400 focus:border-blue-500 outline-none py-2 peer transition-colors"
                 value={lastName}
@@ -80,8 +59,8 @@ const SignupForm = () => {
           </div>
 
           <div className="relative">
-            <input 
-              type="text" 
+            <input
+              type="text"
               required
               className="w-full bg-transparent dark:text-white text-gray-900 border-b-2 dark:border-white border-gray-400 focus:border-blue-500 outline-none py-2 peer pr-10 transition-colors"
               value={username}
@@ -106,8 +85,8 @@ const SignupForm = () => {
           </div>
 
           <div className="relative">
-            <input 
-              type="email" 
+            <input
+              type="email"
               required
               className="w-full bg-transparent dark:text-white text-gray-900 border-b-2 dark:border-white border-gray-400 focus:border-blue-500 outline-none py-2 peer transition-colors"
               value={email}
@@ -121,7 +100,7 @@ const SignupForm = () => {
           </div>
 
           <div className="relative">
-            <input 
+            <input
               type={showPassword ? 'text' : 'password'}
               required
               className="w-full bg-transparent dark:text-white text-gray-900 border-b-2 dark:border-white border-gray-400 focus:border-blue-500 outline-none py-2 peer pr-8 transition-colors"
