@@ -1,11 +1,15 @@
+import Login from "./components/Login"
+import SignupForm from "./components/SignUp"
+
 
 
 
 const App = () => {
   return (
     <div>
-      <h2>Hii</h2>
-
+    
+     {/* <Login /> */}
+     <SignupForm />
     </div>
 
   )
