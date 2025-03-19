@@ -1,10 +1,10 @@
-
+import ChatBot from "./components/ChatBot"
 
 
 const App = () => {
   return (
     <div>
-      <h2>Hii</h2>
+      <ChatBot />
 
     </div>
 
