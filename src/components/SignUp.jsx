@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-
+import RandomIcon from "../Assets/Images/random-user-icon.svg"
 const SignupForm = () => {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
@@ -18,11 +18,10 @@ const SignupForm = () => {
   };
 
   return (
-    <div className="min-h-screen dark:bg-transparent bg-gray-100 flex items-center justify-center p-4 transition-colors duration-300">
+    <div className="min-h-screen dark:bg-transparent  flex items-center justify-center p-4 transition-colors duration-300">
       <div className="relative w-full max-w-md dark:bg-black bg-white dark:bg-opacity-90 bg-opacity-90 rounded-xl shadow-2xl px-8 py-10 sm:px-10 sm:py-12 transition-colors duration-300">
         <div className="flex justify-center items-center mb-8">
           <p className="dark:text-white text-gray-900 text-2xl font-bold">Sign Up</p>
-
         </div>
 
         <form className="space-y-6">
@@ -34,12 +33,14 @@ const SignupForm = () => {
                 className="w-full bg-transparent dark:text-white text-gray-900 border-b-2 dark:border-white border-gray-400 focus:border-blue-500 outline-none py-2 peer transition-colors"
                 value={firstName}
                 onChange={(e) => setFirstName(e.target.value)}
+               id='fname'
               />
-              <label className="absolute left-0 top-2 dark:text-white text-gray-400 transition-all duration-300 
+              <label className="absolute left-0 top-2 dark:text-white text-gray-400 transition-all duration-200 
                 peer-focus:-translate-y-5 peer-focus:text-sm
-                peer-valid:-translate-y-5 peer-valid:text-sm">
+                peer-valid:-translate-y-5 peer-valid:text-sm" htmlFor='fname'  >
                 First Name
               </label>
+              
             </div>
 
             <div className="relative">
@@ -49,10 +50,11 @@ const SignupForm = () => {
                 className="w-full bg-transparent dark:text-white text-gray-900 border-b-2 dark:border-white border-gray-400 focus:border-blue-500 outline-none py-2 peer transition-colors"
                 value={lastName}
                 onChange={(e) => setLastName(e.target.value)}
+                id='lname'
               />
               <label className="absolute left-0 top-2 dark:text-white text-gray-400 transition-all duration-300 
                 peer-focus:-translate-y-5 peer-focus:text-sm
-                peer-valid:-translate-y-5 peer-valid:text-sm">
+                peer-valid:-translate-y-5 peer-valid:text-sm" htmlFor='lname'>
                 Last Name
               </label>
             </div>
@@ -65,10 +67,11 @@ const SignupForm = () => {
               className="w-full bg-transparent dark:text-white text-gray-900 border-b-2 dark:border-white border-gray-400 focus:border-blue-500 outline-none py-2 peer pr-10 transition-colors"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
+              id='uname'
             />
             <label className="absolute left-0 top-2 dark:text-white text-gray-400 transition-all duration-300
               peer-focus:-translate-y-5 peer-focus:text-sm
-              peer-valid:-translate-y-5 peer-valid:text-sm">
+              peer-valid:-translate-y-5 peer-valid:text-sm" htmlFor='uname'>
               Username
             </label>
             <button
@@ -77,10 +80,8 @@ const SignupForm = () => {
               className="absolute right-0 top-3 dark:text-white/70 text-gray-500 hover:opacity-80 transition-opacity"
               aria-label="Generate username"
             >
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
-                <path d="M4.873 9.164a1 1 0 011.614-.114l4.15 4.895a1 1 0 01-.058 1.377l-1.5 1.5a1 1 0 01-1.414-1.414l1.16-1.16-3.94-4.648a1 1 0 01-.114-1.614zM15 1a1 1 0 011 1v1h1a1 1 0 110 2h-1v1a1 1 0 11-2 0V5h-1a1 1 0 110-2h1V2a1 1 0 011-1z" />
-              </svg>
+              <img src={RandomIcon} alt="" className='h-7 w-7' />
+            
             </button>
           </div>
 
@@ -91,10 +92,11 @@ const SignupForm = () => {
               className="w-full bg-transparent dark:text-white text-gray-900 border-b-2 dark:border-white border-gray-400 focus:border-blue-500 outline-none py-2 peer transition-colors"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
+              id='email'
             />
             <label className="absolute left-0 top-2 dark:text-white text-gray-400 transition-all duration-300 
               peer-focus:-translate-y-5 peer-focus:text-sm
-              peer-valid:-translate-y-5 peer-valid:text-sm">
+              peer-valid:-translate-y-5 peer-valid:text-sm" htmlFor='email'>
               Email
             </label>
           </div>
@@ -106,10 +108,11 @@ const SignupForm = () => {
               className="w-full bg-transparent dark:text-white text-gray-900 border-b-2 dark:border-white border-gray-400 focus:border-blue-500 outline-none py-2 peer pr-8 transition-colors"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
+              id='pass'
             />
             <label className="absolute left-0 top-2 dark:text-white text-gray-400 transition-all duration-300
               peer-focus:-translate-y-5 peer-focus:text-sm
-              peer-valid:-translate-y-5 peer-valid:text-sm">
+              peer-valid:-translate-y-5 peer-valid:text-sm" htmlFor='pass'>
               Password
             </label>
             <button
@@ -120,14 +123,16 @@ const SignupForm = () => {
             >
               {showPassword ? (
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                  <path fillRule="evenodd" d="M3.707 2.293a1 1 0 00-1.414 1.414l14 14a1 1 0 001.414-1.414l-1.473-1.473A10.014 10.014 0 0019.542 10C18.268 5.943 14.478 3 10 3a9.958 9.958 0 00-4.512 1.074l-1.78-1.781zm4.261 4.26l1.514 1.515a2.003 2.003 0 012.45 2.45l1.514 1.514a4 4 0 00-5.478-5.478z" clipRule="evenodd" />
-                  <path d="M12.454 16.697L9.75 13.992a4 4 0 01-3.742-3.741L2.335 6.578A9.98 9.98 0 00.458 10c1.274 4.057 5.065 7 9.542 7 .847 0 1.669-.105 2.454-.303z" />
-                </svg>
+                <path d="M10 12a2 2 0 100-4 2 2 0 000 4z" />
+                <path fillRule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clipRule="evenodd" />
+              </svg>
+               
               ) : (
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                  <path d="M10 12a2 2 0 100-4 2 2 0 000 4z" />
-                  <path fillRule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clipRule="evenodd" />
-                </svg>
+                <path fillRule="evenodd" d="M3.707 2.293a1 1 0 00-1.414 1.414l14 14a1 1 0 001.414-1.414l-1.473-1.473A10.014 10.014 0 0019.542 10C18.268 5.943 14.478 3 10 3a9.958 9.958 0 00-4.512 1.074l-1.78-1.781zm4.261 4.26l1.514 1.515a2.003 2.003 0 012.45 2.45l1.514 1.514a4 4 0 00-5.478-5.478z" clipRule="evenodd" />
+                <path d="M12.454 16.697L9.75 13.992a4 4 0 01-3.742-3.741L2.335 6.578A9.98 9.98 0 00.458 10c1.274 4.057 5.065 7 9.542 7 .847 0 1.669-.105 2.454-.303z" />
+              </svg>
+                
               )}
             </button>
           </div>
