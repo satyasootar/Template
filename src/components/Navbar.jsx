@@ -23,7 +23,7 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 
-const Navbar1 = ({
+const Navbar = ({
   logo = {
     url: "",
     src: "https://www.logoai.com/oss/icons/2021/12/02/SU8HhT2n6tL-p-_.png",
@@ -355,4 +355,4 @@ const Navbar1 = ({
   );
 };
 
-export { Navbar1 };
+export { Navbar };

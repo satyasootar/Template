@@ -1,11 +1,11 @@
 import ChatBot from "./components/ChatBot"
-import { Navbar1 } from "./components/Navbar1"
+import { Navbar } from "./components/Navbar"
 
 
 const App = () => {
   return (
     <div className="px-10" >
-      <Navbar1 />
+      <Navbar />
       <ChatBot />
 
     </div>
