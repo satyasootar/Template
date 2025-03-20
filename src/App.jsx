@@ -9,7 +9,7 @@ const App = () => {
     <div className="px-10" >
       <Navbar />
       <ChatBot />
-
+    
     </div>
 
   )
