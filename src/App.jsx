@@ -1,8 +1,7 @@
-
 import ChatBot from "./components/ChatBot"
+import { Footer1 } from "./components/Footer"
 import { Navbar } from "./components/Navbar"
 import SignupForm from "./components/SignUp"
-
 
 
 const App = () => {
@@ -11,6 +10,7 @@ const App = () => {
       <Navbar />
       <ChatBot />
       <SignupForm />
+      <Footer1 />
 
     </div>
 
