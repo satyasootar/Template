@@ -7,8 +7,8 @@ import SignupForm from "./components/SignUp"
 const App = () => {
   return (
     <div className="px-10" >
-      <Navbar />
       <ChatBot />
+      <Navbar />
       <SignupForm />
       <Footer1 />
 
