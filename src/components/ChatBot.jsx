@@ -90,67 +90,84 @@ function ChatWindow({ onClose }) {
     };
 
     return (
-        <div className="fixed bottom-20 right-4 w-96 max-w-full bg-white rounded-lg shadow-lg border border-gray-200 flex flex-col">
-            {/* Chat Header */}
-            <div className="bg-blue-600 text-white p-4 rounded-t-lg flex items-center justify-between">
-                <h2 className="text-lg font-semibold">AI Assistant</h2>
-                <div className="flex gap-2">
-                    <button onClick={handleClearChat} className="p-1 hover:bg-blue-700 rounded-full">
-                        <Trash2 size={20} />
-                    </button>
-                    <button onClick={onClose} className="p-1 hover:bg-blue-700 rounded-full">
-                        <X size={20} />
-                    </button>
-                </div>
-            </div>
-
-            {/* Chat Messages */}
-            <div className="flex-1 overflow-y-auto p-4 h-96">
-                {messages.map((message, index) => (
-                    <div
-                        key={index}
-                        className={`flex ${message.isBot ? 'justify-start' : 'justify-end'} mb-4`}
-                    >
-                        <div className={`max-w-[80%] rounded-lg p-3 ${message.isBot ? 'bg-gray-100 text-gray-800' : 'bg-blue-600 text-white'}`}>
-                            <p className="text-sm">{message.text}</p>
-                        </div>
-                    </div>
-                ))}
-                {isLoading && (
-                    <div className="flex justify-start mb-4">
-                        <div className="bg-gray-100 text-gray-800 rounded-lg p-3">
-                            <div className="flex items-center space-x-2">
-                                <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce"></div>
-                                <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce delay-100"></div>
-                                <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce delay-200"></div>
-                            </div>
-                        </div>
-                    </div>
-                )}
-                <div ref={messagesEndRef} />
-            </div>
-
-            {/* Chat Input */}
-            <form onSubmit={handleSubmit} className="border-t border-gray-200 p-4">
-                <div className="flex space-x-2">
-                    <input
-                        type="text"
-                        value={inputMessage}
-                        onChange={(e) => setInputMessage(e.target.value)}
-                        placeholder="Type your message..."
-                        className="flex-1 border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                        disabled={isLoading}
-                    />
-                    <button
-                        type="submit"
-                        className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 disabled:opacity-50"
-                        disabled={isLoading || !inputMessage.trim()}
-                    >
-                        Send
-                    </button>
-                </div>
-            </form>
+        <div className="fixed bottom-20 right-4 w-96 max-w-full bg-white dark:bg-gray-800 rounded-lg shadow-lg border border-gray-200 dark:border-gray-700 flex flex-col">
+    {/* Chat Header */}
+    <div className="bg-blue-600 dark:bg-blue-700 text-white p-4 rounded-t-lg flex items-center justify-between">
+        <h2 className="text-lg font-semibold">AI Assistant</h2>
+        <div className="flex gap-2">
+            <button 
+                onClick={handleClearChat} 
+                className="p-1 hover:bg-blue-700 dark:hover:bg-blue-800 rounded-full text-white"
+            >
+                <Trash2 size={20} />
+            </button>
+            <button 
+                onClick={onClose} 
+                className="p-1 hover:bg-blue-700 dark:hover:bg-blue-800 rounded-full text-white"
+            >
+                <X size={20} />
+            </button>
         </div>
+    </div>
+
+    {/* Chat Messages */}
+    <div className="flex-1 overflow-y-auto p-4 h-96 bg-gray-50 dark:bg-gray-900">
+        {messages.map((message, index) => (
+            <div
+                key={index}
+                className={`flex ${message.isBot ? 'justify-start' : 'justify-end'} mb-4`}
+            >
+                <div className={`max-w-[80%] rounded-lg p-3 ${
+                    message.isBot 
+                        ? 'bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-100' 
+                        : 'bg-blue-600 dark:bg-blue-800 text-white'
+                }`}>
+                    <p className="text-sm">{message.text}</p>
+                </div>
+            </div>
+        ))}
+        {isLoading && (
+            <div className="flex justify-start mb-4">
+                <div className="bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-100 rounded-lg p-3">
+                    <div className="flex items-center space-x-2">
+                        <div className="w-2 h-2 bg-gray-400 dark:bg-gray-300 rounded-full animate-bounce"></div>
+                        <div className="w-2 h-2 bg-gray-400 dark:bg-gray-300 rounded-full animate-bounce delay-100"></div>
+                        <div className="w-2 h-2 bg-gray-400 dark:bg-gray-300 rounded-full animate-bounce delay-200"></div>
+                    </div>
+                </div>
+            </div>
+        )}
+        <div ref={messagesEndRef} />
+    </div>
+
+    {/* Chat Input */}
+    <form onSubmit={handleSubmit} className="border-t border-gray-200 dark:border-gray-700 p-4">
+        <div className="flex space-x-2">
+            <input
+                type="text"
+                value={inputMessage}
+                onChange={(e) => setInputMessage(e.target.value)}
+                placeholder="Type your message..."
+                className="flex-1 border rounded-lg px-4 py-2 focus:outline-none focus:ring-2 
+                         focus:ring-blue-500 dark:focus:ring-blue-600
+                         bg-white dark:bg-gray-800
+                         border-gray-300 dark:border-gray-600
+                         text-gray-900 dark:text-white
+                         dark:placeholder-gray-400"
+                disabled={isLoading}
+            />
+            <button
+                type="submit"
+                className="bg-blue-600 dark:bg-blue-700 text-white px-4 py-2 rounded-lg 
+                         hover:bg-blue-700 dark:hover:bg-blue-800 
+                         disabled:opacity-50 transition-colors"
+                disabled={isLoading || !inputMessage.trim()}
+            >
+                Send
+            </button>
+        </div>
+    </form>
+</div>
     );
 }
 
