@@ -1,4 +1,4 @@
-import { Hexagon, Github, Twitter } from "lucide-react"
+import { Hexagon, Github, Twitter, Instagram } from "lucide-react"
 import { Footer } from "@/components/ui/footer"
 
 function Footer1() {
@@ -18,6 +18,12 @@ function Footer1() {
                         href: "https://github.com",
                         label: "GitHub",
                     },
+                    {
+                        icon: <Instagram className="h-5 w-5" />,
+                        href: "https://instagram.com",
+                        label: "Instagram",
+                    }
+                    
                 ]}
                 mainLinks={[
                     { href: "/products", label: "Products" },
