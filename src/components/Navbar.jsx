@@ -28,7 +28,7 @@ const Navbar = ({
     url: "",
     src: "https://www.logoai.com/oss/icons/2021/12/02/SU8HhT2n6tL-p-_.png",
     alt: "logo",
-    title: "Logo",
+    title: "WEB BOCKET",
   },
   menu = [
     { title: "Home", url: "#" },
@@ -37,57 +37,50 @@ const Navbar = ({
       url: "#",
       items: [
         {
-          title: "Blog",
-          description: "The latest industry news, updates, and info",
+          title: "Hostel Management System",
+          description: "A hostel management system streamlines room allocation, bookings, fee tracking, and maintenance for efficient hostel operations.",
           icon: <Book className="size-5 shrink-0" />,
           url: "#",
         },
         {
-          title: "Company",
-          description: "Our mission is to innovate and empower the world",
+          title: "Attendance System",
+          description: "An attendance system automates time tracking and record-keeping for accurate monitoring of presence and performance.",
           icon: <Trees className="size-5 shrink-0" />,
           url: "#",
         },
         {
-          title: "Careers",
-          description: "Browse job listing and discover our workspace",
+          title: "Ecommerse Website",
+          description: "An e-commerce website is an online platform for buying and selling products or services.",
           icon: <Sunset className="size-5 shrink-0" />,
-          url: "#",
-        },
-        {
-          title: "Support",
-          description:
-            "Get in touch with our support team or visit our community forums",
-          icon: <Zap className="size-5 shrink-0" />,
           url: "#",
         },
       ],
     },
     {
-      title: "Resources",
+      title: "Service",
       url: "#",
       items: [
         {
-          title: "Help Center",
-          description: "Get all the answers you need right here",
+          title: "Web-app Development",
+          description: " We offer top-notch web development services that cater to the unique needs of businesses",
           icon: <Zap className="size-5 shrink-0" />,
           url: "#",
         },
         {
-          title: "Contact Us",
-          description: "We are here to help you with any questions you have",
+          title: "Android Development",
+          description: "Develop high-quality mobile applications for Android",
           icon: <Sunset className="size-5 shrink-0" />,
           url: "#",
         },
         {
-          title: "Status",
-          description: "Check the current status of our services and APIs",
+          title: "UI UX Design",
+          description: "Create stunning and intuitive user interfaces and experiences with WebBocket's UI/UX design services",
           icon: <Trees className="size-5 shrink-0" />,
           url: "#",
         },
         {
-          title: "Terms of Service",
-          description: "Our terms and conditions for using our services",
+          title: "CRM Software",
+          description: "Enhance your customer relationships with our robust CRM software solutions",
           icon: <Book className="size-5 shrink-0" />,
           url: "#",
         },
@@ -110,7 +103,7 @@ const Navbar = ({
   ],
   auth = {
     login: { text: "Log in", url: "#" },
-    signup: { text: "Sign up", url: "#" },
+    signup: { text: "Know More", url: "#" },
   }
 }) => {
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -212,7 +205,7 @@ const Navbar = ({
   };
 
   return (
-    <section className="py-4 dark:bg-transparent">
+    <section className="p-8  dark:bg-transparent">
       <div className="container">
         {/* Desktop Navigation */}
         <nav className="hidden justify-between lg:flex">
@@ -231,7 +224,14 @@ const Navbar = ({
               </NavigationMenu>
             </div>
           </div>
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-5">
+            <Button
+              asChild
+              size="sm"
+              variant="default"
+            >
+              <a href={auth.signup.url}>{auth.signup.text}</a>
+            </Button>
             <Button
               variant="outline"
               size="icon"
@@ -244,22 +244,7 @@ const Navbar = ({
                 <Moon className="size-4" />
               )}
             </Button>
-            <Button
-              asChild
-              variant="outline"
-              size="sm"
-              className="dark:border-gray-600 dark:text-white dark:hover:bg-gray-800"
-            >
-              <a href={auth.login.url}>{auth.login.text}</a>
-            </Button>
-            <Button
-              asChild
-              size="sm"
-              variant="default"
 
-            >
-              <a href={auth.signup.url}>{auth.signup.text}</a>
-            </Button>
           </div>
         </nav>
 
@@ -295,7 +280,7 @@ const Navbar = ({
                     <Menu className="size-4 dark:text-white" />
                   </Button>
                 </SheetTrigger>
-                <SheetContent className="overflow-y-auto dark:bg-gray-900 dark:border-gray-800">
+                <SheetContent className="overflow-y-auto dark:bg-black dark:border-gray-800">
                   <SheetHeader>
                     <SheetTitle className="dark:text-white">
                       <a href={logo.url} className="flex items-center gap-2">
@@ -330,13 +315,7 @@ const Navbar = ({
                       >
                         {isDarkMode ? 'Light Mode' : 'Dark Mode'}
                       </Button>
-                      <Button
-                        asChild
-                        variant="outline"
-                        className="dark:border-gray-600 dark:text-white dark:hover:bg-gray-800"
-                      >
-                        <a href={auth.login.url}>{auth.login.text}</a>
-                      </Button>
+
                       <Button
                         asChild
                         className="dark:bg-gray-800 dark:hover:bg-gray-700 dark:text-white"

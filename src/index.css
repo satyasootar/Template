@@ -68,6 +68,10 @@
   --sidebar-border: oklch(0.92 0.004 286.32);
 
   --sidebar-ring: oklch(0.705 0.015 286.067);
+
+  --brand: hsl(27 96% 61%);
+
+  --brand-foreground: hsl(31 97% 72%);
 }
 
 .dark {
@@ -133,6 +137,8 @@
   --sidebar-border: oklch(1 0 0 / 10%);
 
   --sidebar-ring: oklch(0.552 0.016 285.938);
+
+  --brand: hsl(31 97% 72%);
 }
 
 @theme inline {
@@ -206,6 +212,10 @@
   --color-sidebar-border: var(--sidebar-border);
 
   --color-sidebar-ring: var(--sidebar-ring);
+
+  --color-brand-foreground: var(----brand-foreground);
+
+  --color-brand: var(----brand);
 }
 
 @layer base {
