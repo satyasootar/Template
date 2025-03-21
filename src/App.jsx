@@ -7,11 +7,11 @@ import { DemoHeroGeometric } from "./components/Hero"
 
 const App = () => {
   return (
-    <div className="px-10" >
+    <div >
       <Navbar />
       <DemoHeroGeometric />
-      <ChatBot />
       <Footer1 />
+      <ChatBot />
 
     </div>
 
