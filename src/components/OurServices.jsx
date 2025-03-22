@@ -1,5 +1,5 @@
 'use client';
-import { HoverEffect } from "./ui/hover-effect";
+import { HoverEffect } from "./ui/Hover-effect";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import {
