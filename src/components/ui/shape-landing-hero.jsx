@@ -58,16 +58,16 @@ const AnimatedGrid = () => {
   );
 };
 
-const FloatingCard = ({ text, className, delay = 0 }) => {
+const FloatingCard = ({ text, className, delay = 2 }) => {
   return (
     <motion.div
       initial={{ y: 20, opacity: 0 }}
       animate={{ y: [0, -15, 0], opacity: 1 }}
       transition={{
-        duration: 6,
+        duration: 10,
         delay,
         repeat: Infinity,
-        ease: "easeInOut",
+        ease: "easeIn",
       }}
       className={cn(
         "absolute backdrop-blur-sm border bg-white/10 dark:bg-black/20 px-4 py-3 rounded-lg shadow-lg",
@@ -130,7 +130,7 @@ function HeroGeometric({
   return (
     <div className="relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-white dark:bg-[#0A0A0F]">
       <AnimatedGrid />
-      
+
       <div className="absolute inset-0 overflow-hidden">
         {/* Floating Service Cards */}
         <FloatingCard text={services[0]} className="left-[5%] top-[15%]" delay={0.2} />

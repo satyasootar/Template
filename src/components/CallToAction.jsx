@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Button } from "./ui/button";
 import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css"; // Ensure toast styles are applied
+import "react-toastify/dist/ReactToastify.css"; 
 
 const CallToAction = () => {
     const Successnotify = () =>
