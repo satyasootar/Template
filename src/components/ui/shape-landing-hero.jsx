@@ -20,7 +20,7 @@ const Hexagon = ({ className, delay = 0 }) => {
         <path
           d="M50 1.5L98.25 25.75V74.25L50 98.5L1.75 74.25V25.75L50 1.5Z"
           strokeWidth="1.5"
-          className="text-gray-300/50 dark:text-indigo-900/80"
+          className="text-indigo-300/50 dark:text-indigo-900/80"
         />
       </svg>
     </motion.div>
@@ -40,7 +40,7 @@ const CircuitLine = ({ className, path, delay = 0 }) => {
       <path
         d={path}
         stroke="currentColor"
-        className="text-gray-200 dark:text-indigo-900"
+        className="text-indigo-200/50 dark:text-indigo-900"
         strokeLinecap="round"
       />
     </motion.svg>
@@ -93,7 +93,7 @@ const AnimatedGraph = ({ className, path }) => {
         d={path}
         fill="none"
         stroke="currentColor"
-        className="text-gray-200/50 dark:text-indigo-900/50"
+        className="text-indigo-400/50 dark:text-indigo-900/50"
         initial={{ pathLength: 0 }}
         animate={{ pathLength: 1 }}
         transition={{ duration: 2, delay: 0.5 }}
