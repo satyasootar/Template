@@ -22,6 +22,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
+import { Link } from "react-router-dom";
 
 const Navbar = ({
   logo = {
@@ -31,10 +32,10 @@ const Navbar = ({
     title: "WEB BOCKET",
   },
   menu = [
-    { title: "Home", url: "#" },
+    { title: "Home", url: "/" },
     {
       title: "Products",
-      url: "#",
+      url: "/",
       items: [
         {
           title: "Hostel Management System",
@@ -92,7 +93,7 @@ const Navbar = ({
     },
     {
       title: "Blog",
-      url: "#",
+      url: "/blog",
     },
   ],
   mobileExtraLinks = [
@@ -133,9 +134,9 @@ const Navbar = ({
               <NavigationMenuLink>
                 {item.items.map((subItem) => (
                   <li key={subItem.title}>
-                    <a
+                    <Link
                       className="flex select-none gap-4 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-muted hover:text-accent-foreground dark:hover:bg-gray-700 dark:text-gray-200"
-                      href={subItem.url}>
+                      to={subItem.url}>
                       {subItem.icon}
                       <div>
                         <div className="text-sm font-semibold">
@@ -147,7 +148,7 @@ const Navbar = ({
                           </p>
                         )}
                       </div>
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </NavigationMenuLink>
@@ -157,12 +158,12 @@ const Navbar = ({
       );
     }
     return (
-      <a
+      <Link
         key={item.title}
         className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-accent-foreground dark:text-gray-300 dark:hover:bg-gray-800"
-        href={item.url}>
+        to={item.url}>
         {item.title}
-      </a>
+      </Link>
     );
   };
 
@@ -175,10 +176,10 @@ const Navbar = ({
           </AccordionTrigger>
           <AccordionContent className="mt-2">
             {item.items.map((subItem) => (
-              <a
+              <Link
                 key={subItem.title}
                 className="flex select-none gap-4 rounded-md p-3 leading-none outline-none transition-colors hover:bg-muted hover:text-accent-foreground dark:hover:bg-gray-700 dark:text-gray-200"
-                href={subItem.url}>
+                to={subItem.url}>
                 {subItem.icon}
                 <div>
                   <div className="text-sm font-semibold">{subItem.title}</div>
@@ -188,34 +189,34 @@ const Navbar = ({
                     </p>
                   )}
                 </div>
-              </a>
+              </Link>
             ))}
           </AccordionContent>
         </AccordionItem>
       );
     }
     return (
-      <a
+      <Link
         key={item.title}
-        href={item.url}
+        to={item.url}
         className="font-semibold dark:text-gray-200">
         {item.title}
-      </a>
+      </Link>
     );
   };
 
   return (
-    <section className="p-8  dark:bg-transparent">
+    <section className="p-8 z-50 dark:bg-transparent">
       <div className="container">
         {/* Desktop Navigation */}
         <nav className="hidden justify-between lg:flex">
           <div className="flex items-center gap-6">
-            <a href={logo.url} className="flex items-center gap-2">
+            <Link to={logo.url} className="flex items-center gap-2">
               <img src={logo.src} className="w-8" alt={logo.alt} />
               <span className="text-lg font-semibold dark:text-white">
                 {logo.title}
               </span>
-            </a>
+            </Link>
             <div className="flex items-center">
               <NavigationMenu>
                 <NavigationMenuList>
@@ -230,7 +231,7 @@ const Navbar = ({
               size="sm"
               variant="default"
             >
-              <a href={auth.signup.url}>{auth.signup.text}</a>
+              <Link to={auth.signup.url}>{auth.signup.text}</Link>
             </Button>
             <Button
               variant="outline"
@@ -251,12 +252,12 @@ const Navbar = ({
         {/* Mobile Navigation */}
         <div className="block lg:hidden">
           <div className="flex items-center justify-between">
-            <a href={logo.url} className="flex items-center gap-2">
+            <Link to={logo.url} className="flex items-center gap-2">
               <img src={logo.src} className="w-8" alt={logo.alt} />
               <span className="text-lg font-semibold dark:text-white">
                 {logo.title}
               </span>
-            </a>
+            </Link>
             <div className="flex items-center gap-2">
               <Button
                 variant="outline"
@@ -283,12 +284,12 @@ const Navbar = ({
                 <SheetContent className="overflow-y-auto dark:bg-black dark:border-gray-800">
                   <SheetHeader>
                     <SheetTitle className="dark:text-white">
-                      <a href={logo.url} className="flex items-center gap-2">
+                      <Link to={logo.url} className="flex items-center gap-2">
                         <img src={logo.src} className="w-8" alt={logo.alt} />
                         <span className="text-lg font-semibold">
                           {logo.title}
                         </span>
-                      </a>
+                      </Link>
                     </SheetTitle>
                   </SheetHeader>
                   <div className="my-6 flex flex-col gap-6">
@@ -298,12 +299,12 @@ const Navbar = ({
                     <div className="border-t py-4 dark:border-gray-800">
                       <div className="grid grid-cols-2 justify-start">
                         {mobileExtraLinks.map((link, idx) => (
-                          <a
+                          <Link
                             key={idx}
                             className="inline-flex h-10 items-center gap-2 whitespace-nowrap rounded-md px-4 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-accent-foreground dark:text-gray-400 dark:hover:bg-gray-800"
-                            href={link.url}>
+                            to={link.url}>
                             {link.name}
-                          </a>
+                          </Link>
                         ))}
                       </div>
                     </div>
@@ -320,7 +321,7 @@ const Navbar = ({
                         asChild
                         className="dark:bg-gray-800 dark:hover:bg-gray-700 dark:text-white"
                       >
-                        <a href={auth.signup.url}>{auth.signup.text}</a>
+                        <Link to={auth.signup.url}>{auth.signup.text}</Link>
                       </Button>
                     </div>
                   </div>

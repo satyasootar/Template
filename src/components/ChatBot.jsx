@@ -90,7 +90,7 @@ function ChatWindow({ onClose }) {
     };
 
     return (
-        <div className="fixed bottom-20 right-4 w-96 max-w-full bg-white dark:bg-gray-800 rounded-lg shadow-lg border border-gray-200 dark:border-gray-700 flex flex-col">
+        <div className="fixed bottom-20 z-20 right-4 w-96 max-w-full bg-white dark:bg-gray-800 rounded-lg shadow-lg border border-gray-200 dark:border-gray-700 flex flex-col">
             {/* Chat Header */}
             <div className="bg-blue-600 dark:bg-blue-700 text-white p-4 rounded-t-lg flex items-center justify-between">
                 <h2 className="text-lg font-semibold">Tech Buddy AI</h2>
