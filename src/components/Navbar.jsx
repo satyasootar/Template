@@ -107,7 +107,7 @@ const Navbar = ({
     signup: { text: "Know More", url: "#" },
   }
 }) => {
-  const [isDarkMode, setIsDarkMode] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(true);
 
   useEffect(() => {
     const savedTheme = localStorage.getItem('theme') || 'light';
