@@ -26,7 +26,7 @@ const Blog7 = ({
       author: "Sarah Chen",
       published: "1 Jan 2024",
       url: "https://shadcnblocks.com",
-      image: "/images/block/placeholder-dark-1.svg",
+      image: "https://www.webbocket.com/static/media/BlogImage.6ccbed4150ad810c808ba5af0b09c4dc.svg",
     },
     {
       id: "post-2",
@@ -37,7 +37,7 @@ const Blog7 = ({
       author: "Marcus Rodriguez",
       published: "1 Jan 2024",
       url: "https://shadcnblocks.com",
-      image: "/images/block/placeholder-dark-1.svg",
+      image: "https://plus.unsplash.com/premium_photo-1661347859297-859b8ae1d7c5?q=80&w=1498&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     },
     {
       id: "post-3",
@@ -48,12 +48,12 @@ const Blog7 = ({
       author: "Emma Thompson",
       published: "1 Jan 2024",
       url: "https://shadcnblocks.com",
-      image: "/images/block/placeholder-dark-1.svg",
+      image: "https://images.unsplash.com/photo-1590650516494-0c8e4a4dd67e?q=80&w=1471&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     },
   ]
 }) => {
   return (
-    <section className="py-32">
+    <section className="py-32 px-5">
       <div className="container mx-auto flex flex-col items-center gap-16 lg:px-16">
         <div className="text-center">
           <Badge variant="secondary" className="mb-6">

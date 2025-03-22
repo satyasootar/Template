@@ -6,7 +6,7 @@ function Footer1() {
         <div className="w-full">
             <Footer
                 logo={<Hexagon className="h-10 w-10" />}
-                brandName="Awesome Corp"
+                brandName="WEB BUCKET"
                 socialLinks={[
                     {
                         icon: <Twitter className="h-5 w-5" />,
@@ -23,7 +23,7 @@ function Footer1() {
                         href: "https://instagram.com",
                         label: "Instagram",
                     }
-                    
+
                 ]}
                 mainLinks={[
                     { href: "/products", label: "Products" },
@@ -36,7 +36,7 @@ function Footer1() {
                     { href: "/terms", label: "Terms" },
                 ]}
                 copyright={{
-                    text: "© 2024 Awesome Corp",
+                    text: "© 2024 Web Bucket",
                     license: "All rights reserved",
                 }}
             />

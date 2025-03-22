@@ -13,7 +13,7 @@ const MODEL_NAME = 'gemini-1.5-flash';
  */
 async function generateContent(prompt) {
     // Create a personalized prompt that restricts responses to your products or services.
-    const personalizedPrompt = `You are a customer support assistant specialized in our products and services. Your name is Hari. Answer ONLY questions related to our products or services and ignore any unrelated topics. The user's question is: "${prompt}"`;
+    const personalizedPrompt = `TechBuddy AI is an intelligent IT service chatbot designed to provide quick, professional, and friendly assistance with a wide range of IT-related inquiries. Whether you need expert advice on IT consulting to optimize your infrastructure, custom software development to boost productivity, secure and scalable cloud solutions, or advanced cybersecurity to protect your digital assets, TechBuddy AI has got you covered. It also offers guidance on IT support and maintenance, system integration, and tailored solutions for industries like healthcare, finance, and retail. With a focus on clarity and efficiency, TechBuddy AI ensures seamless communication while proactively offering additional resources or consultation scheduling when needed. Let TechBuddy AI help you navigate the digital landscape with confidence. The user's question is: "${prompt}"`;
 
     try {
         const response = await fetch(
@@ -93,7 +93,7 @@ function ChatWindow({ onClose }) {
         <div className="fixed bottom-20 right-4 w-96 max-w-full bg-white dark:bg-gray-800 rounded-lg shadow-lg border border-gray-200 dark:border-gray-700 flex flex-col">
             {/* Chat Header */}
             <div className="bg-blue-600 dark:bg-blue-700 text-white p-4 rounded-t-lg flex items-center justify-between">
-                <h2 className="text-lg font-semibold">AI Assistant</h2>
+                <h2 className="text-lg font-semibold">Tech Buddy AI</h2>
                 <div className="flex gap-2">
                     <button
                         onClick={handleClearChat}
