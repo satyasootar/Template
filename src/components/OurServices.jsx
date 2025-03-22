@@ -2,7 +2,7 @@
 import { HoverEffect } from "./ui/hover-effect";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { 
+import {
   Code,
   Server,
   Cloud,
@@ -13,7 +13,7 @@ import {
   Phone
 } from "lucide-react";
 
-export default function Skills() {
+export default function Service() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
@@ -43,14 +43,14 @@ export default function Skills() {
       >
         Our IT Services
       </motion.h2>
-      
+
       <motion.div
         variants={containerVariants}
         initial="hidden"
         animate={isInView ? "visible" : "hidden"}
         className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
       >
-        {skills.map((skill, index) => (
+        {services.map((skill, index) => (
           <motion.div
             key={index}
             variants={itemVariants}
@@ -64,7 +64,7 @@ export default function Skills() {
   );
 }
 
-const skills = [
+const services = [
   {
     title: "Custom Software Development",
     description: "Tailored solutions to meet unique business needs and enhance productivity.",

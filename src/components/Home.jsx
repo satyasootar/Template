@@ -1,11 +1,8 @@
 import React from 'react'
-import { Routes } from 'react-router-dom'
-import { Route } from 'lucide-react'
-import { Navbar } from '@/components/Navbar'
 import { DemoHeroGeometric } from '@/components/Hero'
 import { WhyUS } from '@/components/WhyUS'
 import { Blog7 } from '@/components/blog7'
-import Skills from '@/components/OurServices'
+import Service from './OurServices'
 import ITServiceFAQ from '@/components/Accordian'
 import { Testimonial } from '@/components/Testimonal'
 import CallToAction from '@/components/CallToAction'
@@ -16,7 +13,7 @@ function Home() {
             <DemoHeroGeometric />
             <WhyUS />
             <Blog7 />
-            <Skills />
+            <Service />
             <ITServiceFAQ />
             <Testimonial />
             <CallToAction />
@@ -24,4 +21,4 @@ function Home() {
     )
 }
 
-export default Home
+export default Home 

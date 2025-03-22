@@ -18,6 +18,6 @@ function Routing() {
             <ChatBot />
         </>
     )
-}
+} 
 
 export default Routing
