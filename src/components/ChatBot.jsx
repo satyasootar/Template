@@ -90,20 +90,20 @@ function ChatWindow({ onClose }) {
     };
 
     return (
-        <div className="fixed bottom-20 z-20 right-4 w-96 max-w-full bg-white dark:bg-gray-800 rounded-lg shadow-lg border border-gray-200 dark:border-gray-700 flex flex-col">
+        <div className="fixed bottom-20 z-20 right-4 w-96 max-w-full bg-white/80 dark:bg-gray-900/80 rounded-lg shadow-xl backdrop-blur-xl border border-white/30 dark:border-gray-700/30 flex flex-col">
             {/* Chat Header */}
-            <div className="bg-blue-600 dark:bg-blue-700 text-white p-4 rounded-t-lg flex items-center justify-between">
+            <div className="bg-white/90 dark:bg-gray-800/90 backdrop-blur-md text-gray-900 dark:text-white p-4 rounded-t-lg flex items-center justify-between border-b border-white/20 dark:border-gray-700/30">
                 <h2 className="text-lg font-semibold">Tech Buddy AI</h2>
                 <div className="flex gap-2">
                     <button
                         onClick={handleClearChat}
-                        className="p-1 hover:bg-blue-700 dark:hover:bg-blue-800 rounded-full text-white"
+                        className="p-1 hover:bg-black/10 dark:hover:bg-white/10 rounded-full text-gray-700 dark:text-gray-200"
                     >
                         <Trash2 size={20} />
                     </button>
                     <button
                         onClick={onClose}
-                        className="p-1 hover:bg-blue-700 dark:hover:bg-blue-800 rounded-full text-white"
+                        className="p-1 hover:bg-black/10 dark:hover:bg-white/10 rounded-full text-gray-700 dark:text-gray-200"
                     >
                         <X size={20} />
                     </button>
@@ -111,23 +111,24 @@ function ChatWindow({ onClose }) {
             </div>
 
             {/* Chat Messages */}
-            <div className="flex-1 overflow-y-auto p-4 h-96 bg-gray-50 dark:bg-gray-900">
+            <div className="flex-1 overflow-y-auto p-4 h-96 bg-white/60 dark:bg-gray-900/60 backdrop-blur-sm">
                 {messages.map((message, index) => (
                     <div
                         key={index}
                         className={`flex ${message.isBot ? 'justify-start' : 'justify-end'} mb-4`}
                     >
-                        <div className={`max-w-[80%] rounded-lg p-3 ${message.isBot
-                            ? 'bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-100'
-                            : 'bg-blue-600 dark:bg-blue-800 text-white'
-                            }`}>
+                        <div className={`max-w-[80%] rounded-lg p-3 backdrop-blur-sm ${
+                            message.isBot
+                            ? 'bg-white/70 dark:bg-gray-800/80 text-gray-800 dark:text-gray-100 shadow-sm'
+                            : 'bg-gray-100/80 dark:bg-gray-700/80 text-gray-800 dark:text-gray-100 shadow-sm'
+                        }`}>
                             <p className="text-sm">{message.text}</p>
                         </div>
                     </div>
                 ))}
                 {isLoading && (
                     <div className="flex justify-start mb-4">
-                        <div className="bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-100 rounded-lg p-3">
+                        <div className="bg-white/70 dark:bg-gray-800/80 text-gray-800 dark:text-gray-100 rounded-lg p-3 backdrop-blur-sm">
                             <div className="flex items-center space-x-2">
                                 <div className="w-2 h-2 bg-gray-400 dark:bg-gray-300 rounded-full animate-bounce"></div>
                                 <div className="w-2 h-2 bg-gray-400 dark:bg-gray-300 rounded-full animate-bounce delay-100"></div>
@@ -140,26 +141,27 @@ function ChatWindow({ onClose }) {
             </div>
 
             {/* Chat Input */}
-            <form onSubmit={handleSubmit} className="border-t border-gray-200 dark:border-gray-700 p-4">
+            <form onSubmit={handleSubmit} className="border-t border-white/20 dark:border-gray-700/30 p-4 backdrop-blur-sm">
                 <div className="flex space-x-2">
                     <input
                         type="text"
                         value={inputMessage}
                         onChange={(e) => setInputMessage(e.target.value)}
                         placeholder="Type your message..."
-                        className="flex-1 border rounded-lg px-4 py-2 focus:outline-none focus:ring-2 
-                         focus:ring-blue-500 dark:focus:ring-blue-600
-                         bg-white dark:bg-gray-800
-                         border-gray-300 dark:border-gray-600
-                         text-gray-900 dark:text-white
-                         dark:placeholder-gray-400"
+                        className="flex-1 border rounded-lg px-4 py-2 focus:outline-none focus:ring-1 
+                        bg-white/70 dark:bg-gray-800/70
+                        border-gray-300/50 dark:border-gray-700/50
+                        text-gray-900 dark:text-white
+                        placeholder-gray-500 dark:placeholder-gray-400
+                        backdrop-blur-sm"
                         disabled={isLoading}
                     />
                     <button
                         type="submit"
-                        className="bg-blue-600 dark:bg-blue-700 text-white px-4 py-2 rounded-lg 
-                         hover:bg-blue-700 dark:hover:bg-blue-800 
-                         disabled:opacity-50 transition-colors"
+                        className="bg-gray-100/80 dark:bg-gray-800/80 text-gray-900 dark:text-white px-4 py-2 rounded-lg 
+                        hover:bg-gray-200/80 dark:hover:bg-gray-700/80 
+                        disabled:opacity-50 transition-all backdrop-blur-sm
+                        border border-gray-300/50 dark:border-gray-700/50"
                         disabled={isLoading || !inputMessage.trim()}
                     >
                         Send
@@ -170,34 +172,21 @@ function ChatWindow({ onClose }) {
     );
 }
 
-/**
- * ChatWidget manages the overall chat experience.
- * It initially displays a floating circular button with a Bot icon. When clicked, it opens the ChatWindow.
- */
 function ChatWidget() {
     const [isOpen, setIsOpen] = useState(false);
 
-    const openChat = () => {
-        setIsOpen(true);
-    };
-
-    const closeChat = () => {
-        setIsOpen(false);
-    };
-
     return (
         <>
-            {isOpen && <ChatWindow onClose={closeChat} />}
+            {isOpen && <ChatWindow onClose={() => setIsOpen(false)} />}
             {!isOpen && (
                 <button
-                    onClick={openChat}
-                    className="fixed bottom-4 right-4 dark:bg-white bg-black text-white w-16 h-16 rounded-full flex items-center justify-center shadow-lg"
+                    onClick={() => setIsOpen(true)}
+                    className="fixed bottom-4 right-4 bg-white/80 dark:bg-gray-800/80 w-16 h-16 rounded-full flex items-center justify-center shadow-xl backdrop-blur-xl border border-white/30 dark:border-gray-700/30 hover:bg-white/90 dark:hover:bg-gray-700/90 transition-all"
                 >
-                    <Bot className='text-white dark:text-black' size={30} />
+                    <Bot className="text-gray-900 dark:text-white" size={30} />
                 </button>
             )}
         </>
     );
 }
-
 export default ChatWidget;
