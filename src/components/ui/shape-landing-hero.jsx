@@ -131,7 +131,7 @@ function HeroGeometric({
     <div className="relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-white dark:bg-[#0A0A0F]">
       <AnimatedGrid />
 
-      <div className="absolute inset-0 overflow-hidden">
+      <div className="absolute inset-0 overflow-hidden z-1">
         {/* Floating Service Cards */}
         <FloatingCard text={services[0]} className="left-[5%] top-[15%]" delay={0.2} />
         <FloatingCard text={services[1]} className="left-[10%] top-[30%]" delay={0.4} />
