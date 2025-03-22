@@ -1,4 +1,4 @@
-# WEB BOCKET
+# WEB BOCKET REDESIGN
 
 Welcome to **WEB BOCKET** – your trusted partner in innovative IT solutions. We specialize in transforming businesses through technology, providing comprehensive IT services that keep your operations secure, scalable, and efficient.
 
